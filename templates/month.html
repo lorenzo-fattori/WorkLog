@@ -2,11 +2,6 @@
 {% block title %}{{ month_name }} {{ year }} · WorkLog{% endblock %}
 {% block content %}
 <section class="hero">
-  <div>
-    <p class="eyebrow">Il tuo archivio personale</p>
-    <h1>Le ore prendono forma.</h1>
-    <p class="hero-copy">Registra le tue giornate e tieni il ritmo del lavoro, un mese alla volta.</p>
-  </div>
   <div class="year-stat">
     <span>Totale {{ year }}</span>
     <strong>{{ "%.2f"|format(year_total) }} <small>ore</small></strong>
