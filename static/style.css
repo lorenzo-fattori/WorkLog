@@ -81,8 +81,9 @@ input:focus { border-color: var(--mint); }
 .flash { padding: 13px 17px; border-radius: 5px; box-shadow: var(--shadow); background: var(--ink); color: white; font-size: 13px; animation: slide-in .3s ease; }
 .flash.error { border-left: 4px solid var(--coral); }
 .flash.success { border-left: 4px solid var(--mint); }
-footer { padding: 60px 0 28px; color: #a4afa8; font-size: 11px; letter-spacing: .04em; }
-footer span { margin: 0 5px; color: var(--mint-deep); }
+footer { display: flex; align-items: center; gap: 5px; padding: 60px 0 28px; color: #a4afa8; font-size: 11px; letter-spacing: .04em; }
+.footer-brand { color: inherit; }
+.footer-separator { color: var(--mint-deep); }
 .github-link { display: inline-flex; align-items: center; gap: 6px; color: inherit; transition: color .2s ease; }
 .github-link:hover { color: var(--ink); }
 .github-mark { width: 15px; height: 15px; }
