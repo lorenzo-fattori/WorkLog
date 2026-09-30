@@ -83,5 +83,9 @@ input:focus { border-color: var(--mint); }
 .flash.success { border-left: 4px solid var(--mint); }
 footer { padding: 60px 0 28px; color: #a4afa8; font-size: 11px; letter-spacing: .04em; }
 footer span { margin: 0 5px; color: var(--mint-deep); }
+.github-link { display: inline-flex; align-items: center; gap: 6px; color: inherit; transition: color .2s ease; }
+.github-link:hover { color: var(--ink); }
+.github-mark { width: 15px; height: 15px; }
+.github-link .github-name { margin: 0; color: inherit; }
 @keyframes slide-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 760px) { .page-shell { padding: 0 20px; } .topbar { height: 72px; } .hero { display: block; padding: 48px 0 38px; } h1 { font-size: 48px; } .hero-copy { font-size: 14px; } .year-stat { margin-top: 30px; } .workspace-grid { grid-template-columns: 1fr; grid-template-areas: "add" "main"; } .entries-panel { padding: 22px 17px; } .add-panel { padding: 25px 22px; } .entry-row { grid-template-columns: 43px 1fr auto 20px; gap: 10px; } .entry-date strong { font-size: 12px; } .month-heading h2 { font-size: 25px; } }
