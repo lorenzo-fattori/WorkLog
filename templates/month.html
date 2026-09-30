@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}{{ month_name }} {{ year }} · WorkLog{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">Il tuo archivio personale</p>
+    <h1>Le ore prendono forma.</h1>
+    <p class="hero-copy">Registra le tue giornate e tieni il ritmo del lavoro, un mese alla volta.</p>
+  </div>
+  <div class="year-stat">
+    <span>Totale {{ year }}</span>
+    <strong>{{ "%.2f"|format(year_total) }} <small>ore</small></strong>
+  </div>
+</section>
+
+<section class="workspace-grid">
+  <div class="main-column">
+    <div class="month-toolbar">
+      <a class="icon-button" href="{{ previous_url }}" aria-label="Mese precedente">←</a>
+      <div class="month-heading">
+        <span class="month-kicker">Registro mensile</span>
+        <h2>{{ month_name }} <span>{{ year }}</span></h2>
+      </div>
+      <a class="icon-button" href="{{ next_url }}" aria-label="Mese successivo">→</a>
+    </div>
+
+    <div class="entries-panel">
+      <div class="panel-header">
+        <div>
+          <h3>Giornate registrate</h3>
+          <p>{{ entries|length }} {% if entries|length == 1 %}giornata{% else %}giornate{% endif %}</p>
+        </div>
+        <div class="total-pill"><span>Totale mese</span><strong>{{ "%.2f"|format(total) }} h</strong></div>
+      </div>
+
+      {% if entries %}
+      <div class="entries-list">
+        {% for entry in entries %}
+        <article class="entry-row">
+          <div class="date-badge">
+            <strong>{{ entry.work_date[8:10] }}</strong>
+            <span>{{ month_name[:3] }}</span>
+          </div>
+          <div class="entry-date">
+            <strong>{{ entry.work_date[8:10] }} {{ month_name }}</strong>
+            <span>{{ entry.work_date[:4] }}</span>
+          </div>
+          <div class="entry-hours"><strong>{{ "%.2f"|format(entry.hours) }}</strong><span>ore</span></div>
+          <form method="post" action="{{ url_for('delete_entry', entry_id=entry.id) }}" class="delete-form">
+            <button class="delete-button" type="submit" aria-label="Elimina registrazione">×</button>
+          </form>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="empty-state">
+        <div class="empty-icon">＋</div>
+        <h3>Nessuna giornata ancora</h3>
+        <p>Aggiungi la prima registrazione di {{ month_name|lower }}.</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <aside class="add-panel">
+    <div class="form-intro">
+      <span class="form-number">01</span>
+      <h2>Aggiungi una giornata</h2>
+      <p>Segna il tempo che hai dedicato al tuo lavoro.</p>
+    </div>
+    <form method="post" action="{{ url_for('add_entry') }}" id="entry-form">
+      <label for="work_date">Data</label>
+      <input id="work_date" name="work_date" type="date" value="{{ today if today[:7] == '%04d-%02d'|format(year, month) else '%04d-%02d-01'|format(year, month) }}" required>
+      <label for="hours">Ore lavorate</label>
+      <div class="hours-input"><input id="hours" name="hours" type="number" min="0.25" max="24" step="0.25" placeholder="0,00" required><span>ore</span></div>
+      <button class="primary-button" type="submit">Salva giornata <span>↗</span></button>
+    </form>
+    <p class="form-note">Puoi usare anche valori frazionari, ad esempio 7,5 ore.</p>
+  </aside>
+</section>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  <div class="flash-stack">
+    {% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}
+  </div>
+  {% endif %}
+{% endwith %}
+{% endblock %}
