@@ -1,5 +1,6 @@
 # WorkLog
-A web application for tracking working hours month by month.
+
+#### Video Demo:  [**link**](https://www.youtube.com/watch?v=5b9B64svKok)
 
 ## Project information
 
@@ -8,23 +9,71 @@ A web application for tracking working hours month by month.
 - **edX username**: lorenzo.fattori@icloud.com
 - **City and country**: Rimini, Italy
 - **Video recording date**: September 30, 2026
+**WorkLog** is a web application designed to make it simple to track and manage working hours throughout the month.
 
-## Description
+## Overview
 
-This is my final project for CS50x, called **WorkLog**.
+With WorkLog, users can record their working shifts by entering the relevant information, such as the date, starting time, ending time, and break duration. The application automatically calculates the total number of hours worked and organizes the information in a clear and structured way.
 
-WorkLog is a web application designed to help workers keep track of the hours they work, organized month by month.
+The application is designed around a simple principle: **tracking working hours should be quick, intuitive, and require as little manual work as possible.**
 
-I created this project because keeping track of working hours can be inconvenient, especially when working different shifts or schedules throughout the month. With WorkLog, the goal is to make this process simple, clear, and accessible from any device.
+WorkLog can be particularly useful for people who work variable shifts or have schedules that change throughout the month. Instead of manually calculating the total hours worked, users can enter their shifts and let the application handle the calculations.
 
-When I open the application, I can add my working hours by entering the date, start time, end time, and, if necessary, a break. The application then calculates the total hours worked and keeps all the data organized by month.
+## Main Features
 
-The main page provides an overview of my working activity, allowing me to quickly see how many hours I have worked and review individual shifts.
+* Add and manage individual work shifts
+* Record starting and ending times
+* Account for breaks during a shift
+* Automatically calculate total working hours
+* Organize shifts by date and month
+* View an overview of monthly working hours
+* Delete or modify recorded shifts
+* Simple and responsive user interface
 
-For the backend, I used **Python and Flask**, while **SQLite** is used to store the data. The frontend is built with **HTML, CSS, and JavaScript**.
+## Technologies
 
-One of the main things I wanted to achieve was to keep the interface simple and intuitive, so that adding a new shift takes only a few seconds.
+WorkLog was developed using several technologies and concepts covered throughout **CS50x**:
 
-This project also gave me the opportunity to put into practice several concepts I learned during CS50, including Flask, databases, SQL, HTTP requests, templates, and frontend development.
+* **Python** – main programming language
+* **Flask** – web framework used for the backend
+* **SQLite** – database used to store working hours
+* **SQL** – used to interact with the database
+* **HTML** – structure of the web pages
+* **CSS** – styling and layout
+* **JavaScript** – client-side functionality and interactivity
+* **Jinja** – templating engine used by Flask
 
-Overall, WorkLog is a relatively simple application, but it solves a real problem that I personally wanted to address.
+## How It Works
+
+When a user adds a new shift, the application receives the relevant information through a form. Flask processes the request and stores the data in the SQLite database.
+
+The application then calculates the duration of the shift, taking breaks into account, and displays the information in the appropriate section of the application.
+
+By storing each shift in a database, WorkLog can keep track of working activity over time and provide a clearer overview of the user's monthly workload.
+
+## Project Purpose
+
+WorkLog was created as my **final project for Harvard University's CS50x**, with the goal of applying the programming concepts and technologies learned throughout the course to a practical, real-world application.
+
+The project allowed me to work with a complete web application stack, from the frontend interface to backend logic and database management.
+
+More importantly, I wanted to build something that could be useful beyond the scope of the course. WorkLog is based on a real everyday need: keeping track of working hours in a simple and reliable way.
+
+## Future Improvements
+
+There are several features that could be added in future versions of WorkLog, such as:
+
+* User authentication and individual accounts
+* Exporting working hours to CSV or PDF
+* Monthly and yearly statistics
+* Salary and earnings calculations
+* Custom hourly rates
+* Mobile-focused improvements
+* Cloud-based data storage
+* Notifications and reminders
+
+## Author
+
+**Lorenzo Fattori**
+
+WorkLog was developed as the final project for **CS50x – Introduction to Computer Science**.
